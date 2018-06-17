@@ -20,14 +20,6 @@ void UPositionReporter::BeginPlay()
 	Super::BeginPlay();
 
 	FString ObjectName = GetOwner()->GetName();
-
-	FVector DefaultLocation = GetOwner()->GetTransform().GetLocation();
-	FVector NewStartLocation = DefaultLocation;
-	NewStartLocation.X = 200;
-	GetOwner()->GetTransform().SetLocation(NewStartLocation);
-
-	UE_LOG(LogTemp, Warning, TEXT("New location is %s"), *(NewStartLocation.ToString()));
-
 	FString ObjectPos = GetOwner()->GetActorLocation().ToString();
     UE_LOG(LogTemp, Warning, TEXT("%s is at %s"), *ObjectName, *ObjectPos);
 }
