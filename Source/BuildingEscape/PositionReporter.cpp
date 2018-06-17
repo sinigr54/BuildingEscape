@@ -10,7 +10,7 @@ UPositionReporter::UPositionReporter()
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
 
-	// ...
+    UE_LOG(LogTemp, Warning, TEXT("PositionReporter::Constructor"));
 }
 
 
@@ -18,9 +18,8 @@ UPositionReporter::UPositionReporter()
 void UPositionReporter::BeginPlay()
 {
 	Super::BeginPlay();
-
-	// ...
 	
+    UE_LOG(LogTemp, Warning, TEXT("PositionReporter::BeginPlay"));
 }
 
 
