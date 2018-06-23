@@ -36,8 +36,11 @@ private:
 	UPROPERTY(EditAnywhere)
 	ATriggerVolume* PressurePlate;
 
+	AActor* ActorThatOpens;
+
 private:
 
 	void OpenDoor();
 	
+	inline void OpenDoorAnimated();
 };
