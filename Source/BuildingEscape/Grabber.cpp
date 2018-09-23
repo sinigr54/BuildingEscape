@@ -34,6 +34,11 @@ void UGrabber::BeginPlay() {
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
+    if (PhysicsHandleComponent == nullptr) {
+        UE_LOG(LogTemp, Error, TEXT("Error: PhysicsHandleComponent is null!"))
+        return;
+    }
+
     if (PhysicsHandleComponent->GetGrabbedComponent() != nullptr) {
         auto LineTraceEnd = CalculateLineTraceEnd();
 

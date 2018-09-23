@@ -28,30 +28,15 @@ void UOpenDoor::BeginPlay() {
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) {
     Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
-    if (GetTotalMassOfActorsOnPlate() > 30.0f) {
-        OpenDoor();
+    if (PressurePlate == nullptr) {
+        UE_LOG(LogTemp, Error, TEXT("Error: PressurePlace is null!"))
+        return;
+    }
+
+    if (GetTotalMassOfActorsOnPlate() > TriggerMass) {
+        OnOpen.Broadcast();
     } else {
-        CloseDoor();
-    }
-}
-
-void UOpenDoor::OpenDoor() {
-    AActor *Owner = GetOwner();
-    FRotator RotationTransform = Owner->GetActorRotation();
-
-    if (RotationTransform.Yaw > -80) {
-        RotationTransform.Yaw -= 1.0f;
-        Owner->SetActorRotation(RotationTransform, ETeleportType::TeleportPhysics);
-    }
-}
-
-void UOpenDoor::CloseDoor() {
-    AActor *Owner = GetOwner();
-    FRotator RotationTransform = Owner->GetActorRotation();
-
-    if (RotationTransform.Yaw < 0) {
-        RotationTransform.Yaw += 1.0f;
-        Owner->SetActorRotation(RotationTransform, ETeleportType::TeleportPhysics);
+        OnClose.Broadcast();
     }
 }
 
