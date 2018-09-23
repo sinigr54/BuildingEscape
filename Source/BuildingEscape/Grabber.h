@@ -43,4 +43,6 @@ private:
     void SetUpInputComponent();
 
     FHitResult GetFirstPhysicsBodyInReach() const;
+
+    inline FVector CalculateLineTraceEnd() const;
 };
