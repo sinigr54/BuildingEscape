@@ -39,8 +39,8 @@ void UOpenDoor::OpenDoor() {
     AActor *Owner = GetOwner();
     FRotator RotationTransform = Owner->GetActorRotation();
 
-    if (RotationTransform.Yaw > -40) {
-        RotationTransform.Yaw -= 0.7;
+    if (RotationTransform.Yaw > -80) {
+        RotationTransform.Yaw -= 1.0f;
         Owner->SetActorRotation(RotationTransform, ETeleportType::TeleportPhysics);
     }
 }
@@ -50,7 +50,7 @@ void UOpenDoor::CloseDoor() {
     FRotator RotationTransform = Owner->GetActorRotation();
 
     if (RotationTransform.Yaw < 0) {
-        RotationTransform.Yaw += 0.7;
+        RotationTransform.Yaw += 1.0f;
         Owner->SetActorRotation(RotationTransform, ETeleportType::TeleportPhysics);
     }
 }
