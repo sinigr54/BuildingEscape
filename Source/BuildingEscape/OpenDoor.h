@@ -40,9 +40,9 @@ private:
 
 private:
 
-	void OpenDoor();
+    inline void OpenDoor();
 
-	void CloseDoor();
+    inline void CloseDoor();
 
-	inline void OpenDoorAnimated();
+    float GetTotalMassOfActorsOnPlate() const;
 };
