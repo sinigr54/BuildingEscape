@@ -9,36 +9,36 @@
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDoorEvent);
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class BUILDINGESCAPE_API UOpenDoor : public UActorComponent
-{
-	GENERATED_BODY()
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
+class BUILDINGESCAPE_API UOpenDoor : public UActorComponent {
 
-public:	
-	// Sets default values for this component's properties
-	UOpenDoor();
+    GENERATED_BODY()
+
+public:
+    // Sets default values for this component's properties
+    UOpenDoor();
 
 protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+    // Called when the game starts
+    void BeginPlay() override;
 
-public:	
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+public:
+    // Called every frame
+    void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) override;
 
-	UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable)
     FOnDoorEvent OnOpen;
 
-	UPROPERTY(BlueprintAssignable)
+    UPROPERTY(BlueprintAssignable)
     FOnDoorEvent OnClose;
 
 private:
 
-	UPROPERTY(EditAnywhere)
-	float TriggerMass = 30.0f;
+    UPROPERTY(EditAnywhere)
+    float TriggerMass = 30.0f;
 
-	UPROPERTY(EditAnywhere)
-	ATriggerVolume* PressurePlate = nullptr;
+    UPROPERTY(EditAnywhere)
+    ATriggerVolume *PressurePlate = nullptr;
 
 private:
 

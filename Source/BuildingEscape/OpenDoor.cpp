@@ -17,12 +17,10 @@ UOpenDoor::UOpenDoor() {
     PrimaryComponentTick.bCanEverTick = true;
 }
 
-
 // Called when the game starts
 void UOpenDoor::BeginPlay() {
     Super::BeginPlay();
 }
-
 
 // Called every frame
 void UOpenDoor::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction *ThisTickFunction) {
